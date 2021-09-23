@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block info %}
+<div class="container">
+    <div class="row">
+        <h1 class="col-md-4">All Shows</h1>
+        <a href="/shows" class="col-md-2 offset-md-6">Ir Atras</a>
+    </div>
+    <div class="row">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Productor</th>
+                    <th>Lanzamiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for show in shows%}
+                <tr>
+                    <th>{{show.id}}</th>
+                    <th>{{show.titulo}}</th>
+                    <th>{{show.productor}}</th>
+                    <th>{{show.lanzamiento}}</th>
+                    <th>
+                        <a href="shows/{{show.id}}">Mostrar</a></li>
+                        <a href="shows/{{show.id}}/edit"><i class="fas fa-edit"></i></a>
+                        <a href="shows/{{show.id}}/delete">Eliminar</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a href="shows/new" class="btn btn-primary">Adicionar un nuevo libro</a>
+    </div>
+</div>
+{% endblock %}

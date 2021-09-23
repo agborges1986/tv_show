@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block info %}
+<div class="row">
+    <h1 class="col-md2">TV Show {{ show.id }}</h1>
+    <a href="/shows" class="col-md-2 offset-md-6">Ir Atras</a>
+</div>
+<p>Título: {{ show.titulo }}</p>
+<p>Distribuidor: {{show.distribuidor}}</p>
+<p>Fecha de Lanzamiento: {{ show.lanzamiento }}</p>
+<p> Descripción: {{ show.descripcion }}</p>
+<br>
+<p> Ultima Actualización: {{ show.updated_at}}</p>
+<p><a href="/shows/{{show.id}}/edit">Editar</a>|<a href="/shows/{{show.id}}/delete">Eliminar</a></p>
+{% endblock %}

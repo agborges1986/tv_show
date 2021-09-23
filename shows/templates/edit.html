@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block info %}
+
+<div class="container center">
+    <div class="row">
+        <h1 class="col-md-4">Editar Show</h1>
+        <a href="/shows" class="col-md-2 offset-md-6">Ir Atras</a>
+    </div>
+    <form action="/shows/edit" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <input type="hidden" name="id" value="{{ show.id }}">
+            <label for="titulo" class="col-sm-2 control-label ">Titulo</label>
+            <input type="text " name="titulo" id="id_titulo" value="{{ show.titulo }} ">
+        </div>
+        <div class="row ">
+            <label for="productor" class="col-sm-2 control-label">Productor</label>
+            <input type="text" name="productor" id="id_productor" value="{{show.productor}} ">
+        </div>
+        <div class="row ">
+            <label for="lanzamiento" class="col-sm-2 control-label">Lanzamiento</label>
+            <input type="date" name="lanzamiento" id="id_lanzamiento" class="col-sm-2 control-label" value="{{show.lanzamiento|date:"Y-m-d"}}">
+        </div>
+        <div class="row ">
+            <label for="descripcion" class="col-sm-2 control-label">Descripcion</label>
+            <input type="text" name="descripcion" id="id_descripcion " value="{{ show.descripcion}} ">
+        </div>
+        <div class="row ">
+            <button type="submit" class="btn btn-primary col-sm-2 offset-sm-2">Modificaciones</button>
+        </div>
+        <a href="/shows/{{show.id}}">Ir a ver Show</a>
+    </form>
+</div>
+{% endblock info %}
